@@ -1,6 +1,9 @@
 package com.app.ecom.controller;
 
 import com.app.ecom.User.User;
+import com.app.ecom.service.UserService;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,16 +14,16 @@ import java.util.List;
 
 @RestController
 public class UserController {
-    List<User> usersList = new ArrayList<User>();
-
+    @Autowired
+    private UserService userService;
     @GetMapping("/api/users")
     public List<User> getAllUsers() {
-        return usersList;
+        return userService.fetchAllUsers();
     }
 
     @PostMapping("/api/users")
-    public List<User> createUser(@RequestBody User user) {
-        usersList.add(user);
-        return usersList;
+    public String createUser(@RequestBody User user) {
+        userService.addUser(user);
+        return "User created successfully";
     }
 }
