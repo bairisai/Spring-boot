@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static java.util.Arrays.stream;
 
 @Service
 public class UserServiceImpl implements  UserService{
