@@ -1,6 +1,6 @@
 package com.app.ecom.service;
 
-import com.app.ecom.User.User;
+import com.app.ecom.model.User;
 
 import java.util.List;
 import java.util.Optional;
